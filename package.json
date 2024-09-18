@@ -1,0 +1,14 @@
+{
+    "name": "onejs-comps",
+    "description": "Contains some common UI components for OneJS",
+    "version": "0.0.2",
+    "main": "./dist/index.js",
+    "types": "./index.d.ts",
+    "exports": {
+        ".": "./dist/index.js"
+    },
+    "dependencies": {
+        "onejs-core": "^0.3.25",
+        "onejs-preact": "^0.3.18"
+    }
+}
