@@ -12,19 +12,17 @@
         "lib": [ "esnext" ],
         "rootDir": "./src",
         "outDir": "./dist",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "jsx": "react",
         "jsxFactory": "h",
         "jsxFragmentFactory": "Fragment",
         "skipLibCheck": false,
         "forceConsistentCasingInFileNames": true,
-        "declaration": true,
-        "types": [ "onejs-core" ]
+        "declaration": true
     },
     "include": [ "src/**/*" ],
     "exclude": [
         "node_modules",
-        "dist",
-        "index.d.ts"
+        "dist"
     ]
 }

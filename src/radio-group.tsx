@@ -1,0 +1,67 @@
+import { h, Fragment, createContext } from "preact"
+import { useContext, useEffect, useRef, useState } from "preact/hooks"
+
+export interface RadioGroupProps {
+    class?: string
+    style?: Partial<CS.OneJS.Dom.DomStyle>
+    children?: any
+    index?: number
+    onChange?: (index: number) => void
+}
+
+const RadioGroupContext = createContext({} as any)
+
+export const RadioGroup = ({ class: classProp, children, index, onChange, style }: RadioGroupProps) => {
+    const [selectedIndex, setSelectedIndex] = useState(index || 0)
+
+    useEffect(() => {
+        onChange && onChange(selectedIndex)
+    }, [selectedIndex])
+
+    return <RadioGroupContext.Provider value={{ selectedIndex, setSelectedIndex }}>
+        <div class={`${classProp}`} style={style}>{children}</div>
+    </RadioGroupContext.Provider>
+}
+
+export interface RadioGroupOptionProps {
+    class?: string | Function
+    children?: any
+    style?: Partial<CS.OneJS.Dom.DomStyle>
+    index: number
+}
+
+RadioGroup.Option = ({ class: classProp, index, children, style }: RadioGroupOptionProps) => {
+    const { selectedIndex, setSelectedIndex } = useContext(RadioGroupContext)
+
+    function onClick() {
+        setSelectedIndex(index)
+    }
+
+    return <div key={`${index}`} class={typeof classProp === "function" ? classProp({ checked: selectedIndex == index }) : classProp} onClick={onClick} style={style}>
+        {typeof children === "function" ? children({ checked: selectedIndex == index }) : children}
+    </div>
+}
+
+export interface RadioToggleProps {
+    class?: string
+    style?: Partial<CS.OneJS.Dom.DomStyle>
+    items: { label: string, value: any }[]
+    index?: number
+    onChange?: (value: any) => void
+}
+
+export const RadioToggle = ({ class: classProp, items, index, onChange, style }: RadioToggleProps) => {
+    index = index || 0
+
+    function onChangeIndex(index: number) {
+        onChange && onChange(items[index].value)
+    }
+
+    return <RadioGroup class={`flex flex-row rounded-sm overflow-hidden default-bg-color active-text-color bold ${classProp}`} index={index} onChange={onChangeIndex}>
+        {items.map((item, i) => (
+            <RadioGroup.Option class={({ checked }) => `${checked ? "accented-bg-color highlighted-text-color" : "bg-white"} p-3 transition-[background-color] duration-200`} index={i}>
+                {({ checked }) => <Fragment>{item.label}</Fragment>}
+            </RadioGroup.Option>
+        ))}
+    </RadioGroup>
+}

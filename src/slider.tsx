@@ -30,7 +30,7 @@ export interface SliderProps extends JSX.VisualElement {
     thumbStyle?: Partial<CS.OneJS.Dom.DomStyle>
 }
 
-export function Slider({ min: _min, max: _max, value: _value, onChange, onPointerDown, onPointerMove, onPointerUp, class: $class, trackClass, trackStyle, activeTrackClass, activeTrackStyle, thumbClass, thumbStyle, ...props }: SliderProps): Element {
+export function Slider({ min: _min, max: _max, value: _value, onChange, onPointerDown, onPointerMove, onPointerUp, class: $class, trackClass, trackStyle, activeTrackClass, activeTrackStyle, thumbClass, thumbStyle, ...props }: SliderProps) {
     const trackRef = useRef<Dom>()
     const activeTrackRef = useRef<Dom>()
 
