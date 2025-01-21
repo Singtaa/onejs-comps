@@ -1,7 +1,7 @@
 {
     "name": "onejs-comps",
     "description": "Contains common UI components for OneJS",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "repository": {
         "type": "git",
         "url": "https://github.com/Singtaa/onejs-comps.git"
