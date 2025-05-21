@@ -1,7 +1,7 @@
 {
     "name": "onejs-comps",
     "description": "Contains common UI components for OneJS",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "repository": {
         "type": "git",
         "url": "https://github.com/Singtaa/onejs-comps.git"
@@ -17,7 +17,7 @@
     "dependencies": {
         "classnames": "^2.5.1",
         "clsx": "^2.1.1",
-        "onejs-core": "^1.0.25",
-        "onejs-preact": "^1.0.2"
+        "onejs-core": "^2.0.0",
+        "onejs-preact": "^2.0.0"
     }
 }
