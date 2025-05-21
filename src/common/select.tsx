@@ -1,6 +1,6 @@
 import { h, Fragment, createContext } from "preact"
 import { useContext, useEffect, useRef, useState } from "preact/hooks"
-import { FAIcon } from "./fa-icon"
+import { FAIcon } from "../font/fa-icon"
 
 export interface ListboxProps {
     class?: string

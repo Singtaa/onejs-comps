@@ -1,5 +1,5 @@
 import { h } from "preact"
-import jsonData from "../resources/fontawesome.json"
+import jsonData from "../../resources/fontawesome.json"
 
 // const jsonData = require("./fontawesome.json")
 const fontDef = resource.loadFontDefinition("assets/@onejs-comps/fontawesome.ttf")
